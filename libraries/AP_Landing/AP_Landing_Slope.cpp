@@ -16,7 +16,7 @@
 /*
  *   AP_Landing_Slope.cpp - Landing logic handler for ArduPlane for STANDARD_GLIDE_SLOPE
  */
-
+#include "../../ArduPlane/Plane.h"
 #include "AP_Landing.h"
 #include <GCS_MAVLink/GCS.h>
 #include <AP_HAL/AP_HAL.h>
@@ -24,6 +24,8 @@
 #include <AP_AHRS/AP_AHRS.h>
 #include <AP_GPS/AP_GPS.h>
 #include <AP_Logger/AP_Logger.h>
+
+extern int gecici_ata;
 
 void AP_Landing::type_slope_do_land(const AP_Mission::Mission_Command& cmd, const float relative_altitude)
 {
@@ -93,7 +95,13 @@ bool AP_Landing::type_slope_verify_land(const Location &prev_WP_loc, Location &n
     height_flare_log = height;
 
     const AP_GPS &gps = AP::gps();
-
+    
+    if(gecici_ata == 1)
+    {
+    gcs().send_text(MAV_SEVERITY_INFO, "ATALAND ATIYORUM");
+    type_slope_stage = SLOPE_STAGE_FINAL;
+    }
+    else{
     if ((on_approach_stage && below_flare_alt) ||
         (on_approach_stage && below_flare_sec && (wp_proportion > 0.5)) ||
         (!rangefinder_state_in_range && wp_proportion >= 1) ||
@@ -137,7 +145,7 @@ bool AP_Landing::type_slope_verify_land(const Location &prev_WP_loc, Location &n
             type_slope_stage = SLOPE_STAGE_PREFLARE;
         }
     }
-
+    }
     /*
       when landing we keep the L1 navigation waypoint 200m ahead. This
       prevents sudden turns if we overshoot the landing point

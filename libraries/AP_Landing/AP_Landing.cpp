@@ -157,7 +157,13 @@ const AP_Param::GroupInfo AP_Landing::var_info[] = {
     // @Path: AP_Landing_Deepstall.cpp
     AP_SUBGROUPINFO(deepstall, "DS_", 15, AP_Landing, AP_Landing_Deepstall),
 #endif
-
+        // @Param: DENEME_LAND
+        // @DisplayName: Landing options bitmask
+        // @Description: Bitmask of options to use with landing.
+        // @Bitmask: 0: honor min throttle during landing flare
+        // @User: Advanced
+        AP_GROUPINFO("DENEME_LAND", 17, AP_Landing, deneme_land, 1),
+        
     // additional global params should be placed in the list above TYPE to avoid the enable flag hiding the deepstall params
 
     AP_GROUPEND

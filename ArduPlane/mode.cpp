@@ -86,7 +86,7 @@ bool Mode::enter()
 #endif
 
     bool enter_result = _enter();
-
+    gcs().send_text(MAV_SEVERITY_INFO, "BISMILLAHIIRRAHMANIRRAHIM");
     if (enter_result) {
         // -------------------
         // these must be done AFTER _enter() because they use the results to set more flags

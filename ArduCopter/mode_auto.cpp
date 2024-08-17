@@ -18,7 +18,7 @@
  *  While in the auto flight mode, navigation or do/now commands can be run.
  *  Code in this file implements the navigation commands
  */
-
+int ata = plane.g2.ata_land;
 // auto_init - initialise auto controller
 bool ModeAuto::init(bool ignore_checks)
 {

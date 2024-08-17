@@ -166,6 +166,7 @@ private:
     AP_Int8 flap_percent;
     AP_Int8 throttle_slewrate;
     AP_Int8 type;
+    AP_Int8 deneme_land;
 
     // Land Type STANDARD GLIDE SLOPE
 
