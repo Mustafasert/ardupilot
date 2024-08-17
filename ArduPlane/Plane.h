@@ -160,9 +160,9 @@ public:
     friend class ModeTakeoff;
     friend class ModeThermal;
     friend class ModeLoiterAltQLand;
-
+    int getATA() { return g2.ata_land; }
     Plane(void);
-
+    
 private:
 
     // key aircraft parameters passed to multiple libraries

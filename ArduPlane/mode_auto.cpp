@@ -66,7 +66,6 @@ void ModeAuto::update()
 {
     gcs().send_text(MAV_SEVERITY_INFO, "lidar:%f", plane.rangefinder_state.height_estimate);
     
-    gecici_ata = plane.g2.ata_land;
     if (plane.mission.state() != AP_Mission::MISSION_RUNNING) {
         // this could happen if AP_Landing::restart_landing_sequence() returns false which would only happen if:
         // restart_landing_sequence() is called when not executing a NAV_LAND or there is no previous nav point

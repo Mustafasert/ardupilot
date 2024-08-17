@@ -24,7 +24,7 @@
 #include <AP_AHRS/AP_AHRS.h>
 #include <AP_GPS/AP_GPS.h>
 #include <AP_Logger/AP_Logger.h>
-#include "../../ArduPlane/Plane.h"
+#include <../ArduPlane/Plane.h>
 extern int gecici_ata;
 
 void AP_Landing::type_slope_do_land(const AP_Mission::Mission_Command& cmd, const float relative_altitude)
@@ -45,7 +45,7 @@ void AP_Landing::type_slope_verify_abort_landing(const Location &prev_WP_loc, Lo
     // the altitude has been reached, restart the landing sequence
     throttle_suppressed = false;
     nav_controller->update_heading_hold(prev_WP_loc.get_bearing_to(next_WP_loc));
-    plane.g2.ata_land;
+    
 }
 
 /*
@@ -97,7 +97,7 @@ bool AP_Landing::type_slope_verify_land(const Location &prev_WP_loc, Location &n
 
     const AP_GPS &gps = AP::gps();
     
-    if(gecici_ata == 1)
+    if(plane.getATA() == 1)
     {
     gcs().send_text(MAV_SEVERITY_INFO, "ATALAND ATIYORUM");
     type_slope_stage = SLOPE_STAGE_FINAL;
