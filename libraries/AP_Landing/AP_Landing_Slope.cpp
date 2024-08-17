@@ -16,7 +16,7 @@
 /*
  *   AP_Landing_Slope.cpp - Landing logic handler for ArduPlane for STANDARD_GLIDE_SLOPE
  */
-#include "../../ArduPlane/Plane.h"
+
 #include "AP_Landing.h"
 #include <GCS_MAVLink/GCS.h>
 #include <AP_HAL/AP_HAL.h>
@@ -24,7 +24,7 @@
 #include <AP_AHRS/AP_AHRS.h>
 #include <AP_GPS/AP_GPS.h>
 #include <AP_Logger/AP_Logger.h>
-
+#include "../../ArduPlane/Plane.h"
 extern int gecici_ata;
 
 void AP_Landing::type_slope_do_land(const AP_Mission::Mission_Command& cmd, const float relative_altitude)
@@ -45,6 +45,7 @@ void AP_Landing::type_slope_verify_abort_landing(const Location &prev_WP_loc, Lo
     // the altitude has been reached, restart the landing sequence
     throttle_suppressed = false;
     nav_controller->update_heading_hold(prev_WP_loc.get_bearing_to(next_WP_loc));
+    plane.g2.ata_land;
 }
 
 /*
