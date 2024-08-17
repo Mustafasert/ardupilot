@@ -197,6 +197,7 @@ void AP_Landing::do_land(const AP_Mission::Mission_Command& cmd, const float rel
 
     switch (type) {
     case TYPE_STANDARD_GLIDE_SLOPE:
+        gcs().send_text(MAV_SEVERITY_INFO, "Burası landing approach if bloğu");
         type_slope_do_land(cmd, relative_altitude);
         break;
 #if HAL_LANDING_DEEPSTALL_ENABLED

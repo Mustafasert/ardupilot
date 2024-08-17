@@ -62,6 +62,7 @@ void Plane::adjust_altitude_target()
         // rate, and ignores the target altitude
         set_target_altitude_location(next_WP_loc);
     } else if (landing.is_on_approach()) {
+        
         landing.setup_landing_glide_slope(prev_WP_loc, next_WP_loc, current_loc, target_altitude.offset_cm);
         landing.adjust_landing_slope_for_rangefinder_bump(rangefinder_state, prev_WP_loc, next_WP_loc, current_loc, auto_state.wp_distance, target_altitude.offset_cm);
     } else if (landing.get_target_altitude_location(target_location)) {

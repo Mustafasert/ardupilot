@@ -352,6 +352,7 @@ public:
         k_param_gcs6,          // stream rates
         k_param_fence,         // vehicle fence - unused
         k_param_acro_yaw_rate,
+        k_param_ata_land,
     };
 
     AP_Int16 format_version;
@@ -506,6 +507,7 @@ public:
 
     // dual motor tailsitter rudder to differential thrust scaling: 0-100%
     AP_Int8 rudd_dt_gain;
+    AP_Int8 ata_land;
 
     // mask of channels to do manual pass-thru for
     AP_Int32 manual_rc_mask;

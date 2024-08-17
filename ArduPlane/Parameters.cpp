@@ -1232,6 +1232,9 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
     AP_SUBGROUPINFO(follow, "FOLL", 33, ParametersG2, AP_Follow),
 #endif
     
+    // @Group: ATA_LANDING
+    // @Path: ../libraries/AC_PrecLand/AC_PrecLand.cpp
+    AP_GROUPINFO("ATA_LANDING", 34, ParametersG2, ata_land, 0),
     AP_GROUPEND
 };
 
