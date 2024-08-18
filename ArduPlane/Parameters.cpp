@@ -348,6 +348,8 @@ const AP_Param::Info Plane::var_info[] = {
     // @User: Standard
     ASCALAR(throttle_slewrate,      "THR_SLEWRATE",   100),
 
+    ASCALAR(ata_land, "ATA_LAND", 0),
+
     // @Param: FLAP_SLEWRATE
     // @DisplayName: Flap slew rate
     // @Description: maximum percentage change in flap output per second. A setting of 25 means to not change the flap by more than 25% of the full flap range in one second. A value of 0 means no rate limiting.
@@ -1234,7 +1236,7 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
     
     // @Group: ATA_LANDING
     // @Path: ../libraries/AC_PrecLand/AC_PrecLand.cpp
-    AP_GROUPINFO("ATA_LANDING", 34, ParametersG2, ata_land, 0),
+    //AP_GROUPINFO("ATA_LANDING", 34, ParametersG2, ata_land, 0),
     AP_GROUPEND
 };
 

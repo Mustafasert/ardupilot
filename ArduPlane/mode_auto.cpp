@@ -1,8 +1,6 @@
 #include "mode.h"
 #include "Plane.h"
 
-int gecici_ata = 0;
-
 bool ModeAuto::_enter()
 {
 #if HAL_QUADPLANE_ENABLED
